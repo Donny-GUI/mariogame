@@ -56,6 +56,12 @@ class Player(pygame.sprite.Sprite):
 			full_path = character_path + animation
 			self.animations[animation] = import_folder(full_path)
 
+		self.animations["attack"] = []
+
+		for i in range(19):
+			p = character_path + "attack\\" + str(i) + ".png"
+			self.animations["attack"].append(pygame.image.load(p).convert_alpha())
+
 	def import_dust_run_particles(self):
 		self.dust_run_particles = import_folder('\\graphics\\character\\dust_particles\\run')
 
